@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../axios-config/axios.config";
 import ServiceCard from "../ServiceCard/ServiceCard";
 
-const OurServices = () => {
+const OurServices = ({allServices}) => {
 
-    const { allServices } = useSelector((state) => state.services)
+    // const { allServices } = useSelector((state) => state.services)
     const slicedServices = allServices.slice(0, 6)
 
     return (

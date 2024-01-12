@@ -23,9 +23,9 @@ app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
 });
 
-app.use("/", (req, res) => {
-    res.json({ message: "Welcome to Velvet Vista API" });
-  })
+// app.use("/", (req, res) => {
+//     res.json({ message: "Welcome to Velvet Vista API" });
+//   })
   
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);

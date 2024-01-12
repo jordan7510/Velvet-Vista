@@ -7,19 +7,21 @@ import OurServices from "../../../components/OurServices/OurServices";
 import TestimonialSlider from "../../../components/TestimonialSlider/TestimonialSlider";
 import UseFetchHook from "../../../hooks/UseFetchHook";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../../axios-config/axios.config";
 import { getAllServices } from "../../../redux/service/serviceSlice";
 const LandingPage = () => {
 
     const dispatch = useDispatch()
-    const {allServices} = useSelector((state)=>state.services)
+    // const {allServices} = useSelector((state)=>state.services)
+    const [allServices,setAllServices] = useState([])
 
     useEffect(() => {
         axiosInstance.get("/api/services/get-by-status")
             .then((res) => {
                 if (res.status === 200) {
-                    dispatch(getAllServices(res.data.result))
+                    setAllServices(res.data.result)
+                    // dispatch(getAllServices(res.data.result))
                 }
             })
             .catch((error) => {
@@ -35,11 +37,15 @@ const LandingPage = () => {
         <div className="mx-auto">
             <Header></Header>
             <HeroSection></HeroSection>
-            <OurServices></OurServices>
+            <OurServices
+            allServices={allServices}
+            ></OurServices>
             <LetUsHandle></LetUsHandle>
             {/* <Testimonial></Testimonial> */}
             <TestimonialSlider></TestimonialSlider>
-            <GetQuotes></GetQuotes>
+            <GetQuotes
+            allServices={allServices}
+            ></GetQuotes>
             <Footer></Footer>
         </div>
     );

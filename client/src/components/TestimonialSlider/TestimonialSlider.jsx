@@ -8,14 +8,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "react-rating";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../axios-config/axios.config";
 import { reviewGet } from "../../redux/reviews/reviewsSlice";
 
 const TestimonialsSlider = () => {
 
     const dispatch = useDispatch()
-    const { allReviews } = useSelector((state) => state.review)
+    const [allReviews, setAllReviews] = useState([])
+    // const { allReviews } = useSelector((state) => state.review)
     
     const breakpoints = {
         640: {
@@ -30,7 +31,8 @@ const TestimonialsSlider = () => {
         axiosInstance.get("api/reviews/get-by-status")
             .then((res) => {
                 if (res.data) {
-                    dispatch(reviewGet(res.data))
+                    // dispatch(reviewGet(res.data))
+                    setAllReviews(res.data)
                 }
             })
             .catch((error) => {
