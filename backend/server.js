@@ -3,6 +3,7 @@ import connection from "./db.js"
 import dotenv from "dotenv"
 import cors from "cors"
 dotenv.config()
+import testRoutes from "./routes/test.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import authRoutes from "./routes/auth.routes.js"
 import adminAuthRoutes from "./routes/auth.admin.routes.js"
@@ -23,10 +24,9 @@ app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
 });
 
-// app.use("/", (req, res) => {
-//     res.json({ message: "Welcome to Velvet Vista API" });
-//   })
+
   
+app.use("/", testRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminAuthRoutes)
