@@ -18,7 +18,7 @@ import AdminAppointments from "../components/AdminComponents/AdminManageAppointm
 import AdminManageCustomers from "../components/AdminComponents/AdminManageCustomers/AdminManageCustomers";
 import AdminManageReviews from "../components/AdminComponents/AdminManageReviews/AdminManageReviews";
 import AdminManageUsers from "../components/AdminComponents/AdminManageUsers/AdminManageUsers";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "./PrivateRoute"
 import Profile from "../pages/UserPages/Profile/Profile";
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import AdminManageQuotes from "../components/AdminComponents/AdminManageQuotes/AdminManageQuotes";

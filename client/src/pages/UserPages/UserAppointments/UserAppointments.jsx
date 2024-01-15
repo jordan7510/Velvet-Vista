@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaRegCreditCard } from "react-icons/fa";
 import { TbBrandPaypalFilled } from "react-icons/tb";
@@ -6,8 +6,24 @@ import Swal from 'sweetalert2';
 import axiosInstance from '../../../axios-config/axios.config';
 
 const UserAppointments = () => {
-    const { allServices } = useSelector((state) => state.services)
+    // const { allServices } = useSelector((state) => state.services)
     const { currentUser } = useSelector((state) => state.user)
+
+    const [allServices,setAllServices] = useState([])
+
+    useEffect(() => {
+        axiosInstance.get("/api/services/get-by-status")
+            .then((res) => {
+                if (res.status === 200) {
+                    setAllServices(res.data.result)
+                    // dispatch(getAllServices(res.data.result))
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }, [])
+   
 
     const getTodayDate = () => {
         const today = new Date();
@@ -112,7 +128,7 @@ const UserAppointments = () => {
                             <select required name='serviceName' className="w-full rounded-lg border-2 outline-none p-3 text-sm ">
                                 <option className='p-3 my-2' value="" >Select service</option>
                                 {
-                                    allServices.map((item) => (
+                                    allServices?.map((item) => (
                                         <option key={item._id} className='p-3 my-2' value={item._id}>{item.serviceTitle}</option>
                                     ))
                                 }

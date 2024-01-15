@@ -8,11 +8,30 @@ import { useSelector } from 'react-redux';
 
 const ServicesPage = () => {
 
+
+    const [allServices,setAllServices] = useState([])
+
+
     useEffect(() => {
         window.scrollTo(0, 0);
     })
 
-    const { allServices } = useSelector((state) => state.services)
+    useEffect(() => {
+        axiosInstance.get("/api/services/get-by-status")
+            .then((res) => {
+                if (res.status === 200) {
+                    setAllServices(res.data.result)
+                    // dispatch(getAllServices(res.data.result))
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }, [])
+
+    
+
+    // const { allServices } = useSelector((state) => state.services)
 
     // const [allServices, setAllServices] = useState([])
 
