@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 // app.use(cors())
-app.use(cors({ credentials: true,origin: 'http://localhost:5173'}));
+app.use(cors({ credentials: true,origin: 'https://velvet-vista-client.vercel.app/'}));
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
