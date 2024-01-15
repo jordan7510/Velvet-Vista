@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target: "https://velvet-vista-client.vercel.app/",
+        target: "https://velvet-vista-client.vercel.app",
         changeOrigin: true,
         ws: true,
         secure: false,
