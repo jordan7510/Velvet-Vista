@@ -51,7 +51,7 @@ const ServicesPage = () => {
         <div className='bg-[#FFF8F5]'>
             <Header></Header>
 
-            <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+            <div className="max-w-screen-xl mx-auto mt-10 md:mt-1 p-5 sm:p-10 md:p-16">
                 <div className="text-center mt-8 mb-20">
                     <h2 className="mb-3 text-center text-3xl font-semibold leading-[1.2] sm:text-4xl md:text-[30px]">
                         What we offer
