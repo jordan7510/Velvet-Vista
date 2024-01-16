@@ -8,7 +8,10 @@ import {
 import { FaUser } from "react-icons/fa";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { FaBriefcase } from "react-icons/fa6";
+import { MdReviews } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { LuFileSpreadsheet } from "react-icons/lu";
+
 import "./AdmiinSideBar.css"
 
 
@@ -48,13 +51,13 @@ const AdminSideBar = () => {
                     </NavLink> */}
                     <NavLink to={"/admin/dashboard/manage-reviews"}>
                         <li className=" bg-gray-100 text-gray-900 px-4 py-3 hover:cursor-pointer hover:bg-[#f63e7b] rounded-md hover:text-white">
-                            <p className="flex items-center gap-3"><span className="text-xl"><FaUser /></span>Reviews</p>
+                            <p className="flex items-center gap-3"><span className="text-xl"><MdReviews /></span>Reviews</p>
                         </li>
                     </NavLink>
 
                     <NavLink to={"/admin/dashboard/manage-quotes"}>
                         <li className=" bg-gray-100 text-gray-900 px-4 py-3 hover:cursor-pointer hover:bg-[#f63e7b] rounded-md hover:text-white">
-                            <p className="flex items-center gap-3"><span className="text-xl"><FaUser /></span>Quotes</p>
+                            <p className="flex items-center gap-3"><span className="text-xl"><LuFileSpreadsheet /></span>Quotations</p>
                         </li>
                     </NavLink>
 
